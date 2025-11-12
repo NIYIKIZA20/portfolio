@@ -158,14 +158,14 @@ export function HeroSection() {
                 </div>
 
                 {/* Floating Elements */}
-                <div
+                {/* <div
                   className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full animate-bounce"
                   style={{ animationDelay: "0.5s" }}
                 />
                 <div
                   className="absolute -bottom-4 -left-4 w-4 h-4 bg-accent rounded-full animate-bounce"
                   style={{ animationDelay: "1s" }}
-                />
+                /> */}
               </div>
             </div>
           </div>

@@ -6,32 +6,32 @@ import Image from "next/image";
 export function ProjectsSection() {
   const projects = [
     {
-      title: "Dating App - Tie the Knot",
+      title: "Tie the Knot",
       description:
         "A modern dating and wedding planning application that connects couples and helps them plan their perfect wedding. Features user matching, venue booking, and vendor connections.",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2EmE9EHTvLXdhKGptURsT3unvjoASa.png",
-      technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+        "/datingapp.png",
+      technologies: ["React", "Node.js", "MongoDB", "Socket.io","nestjs", "Typescript", "Superbase"],
       liveUrl:
-        "https://personal-portifolio-yse9-kfp067xk5-niyikizas-projects.vercel.app/",
+        "https://tieknot.vercel.app/",
     },
     {
-      title: "Personal Portfolio Website",
+      title: "Aguka",
       description:
-        "A modern, responsive portfolio website showcasing my skills and projects. Built with Next.js, featuring dark/light mode, smooth animations, and interactive components.",
+        "A modern, responsive website built as community saving and lending platform. Built with React and tailwind on frontend, nodejs, express  and typescript on server side",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-I8xnFUTzzCJeEBgjyKsN8g2MaP4MVG.png",
-      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+        "/aguka.png",
+      technologies: [ "React", "Tailwind CSS", "TypeScript", "nodejs", "typescript", "webpack"],
       liveUrl:
-        "https://personal-portifolio-git-main-niyikizas-projects.vercel.app/",
+        "https://aguka2025.vercel.app/",
     },
     {
-      title: "E-Commerce Platform",
+      title: "MEP Erictric",
       description:
-        "A full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.",
+        "A full-stack Mep web appplication for highlighting Mep business and its portfolio. Features include user authentication, user interaction, admin dashboard and more",
       image: "/ecommerce-dashboard.png",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      liveUrl: "#",
+      technologies: ["nextjs", "Nest.js", "typescript", "Stripe"],
+      liveUrl: "https://meperictrictech.com",
     },
   ];
 

@@ -10,14 +10,14 @@ export function VideoIntroSection() {
 
   const videos = {
     en: {
-      youtubeId: "R5U5gjUXx4Y",
-      title: "Jean Baptiste N. - Introduction Video (English)",
+      youtubeId: "PeE9VOoqERY",
+      title: "Jean Baptiste N. - Introduction Video",
       description:
         "Learn about my background, skills, and passion for development",
     },
     fr: {
-      youtubeId: "-Y7fBWO8oyI",
-      title: "Jean Baptiste N. - Vidéo de Présentation (Français)",
+      youtubeId: "WAvvUZcrXO4",
+      title: "Jean Baptiste N. - Vidéo de Présentation",
       description:
         "Découvrez mon parcours, mes compétences et ma passion pour le développement",
     },

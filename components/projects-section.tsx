@@ -13,7 +13,7 @@ export function ProjectsSection() {
         "/datingapp.png",
       technologies: ["React", "Node.js", "MongoDB", "Socket.io","nestjs", "Typescript", "Superbase"],
       liveUrl:
-        "https://tietknot.vercel.app/",
+        "https://tieknot.vercel.app/",
     },
     {
       title: "Aguka",

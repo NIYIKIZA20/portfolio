@@ -16,13 +16,13 @@ export function AboutSection() {
     },
     {
       icon: Code,
-      title: "Full Stack Solutions",
-      description: "End-to-end application development",
+      title: " 3D printing & enclosure design",
+      description: "CAD and SolidWorks design, 3D printing, CNC machining",
     },
     {
       icon: Smartphone,
-      title: "Mobile Development",
-      description: "React Native, Progressive Web Apps",
+      title: "embedded systems & IoT",
+      description: "Industral PCB designs, Circuit design and firmware development",
     },
   ];
 

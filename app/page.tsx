@@ -4,7 +4,6 @@ import { VideoIntroSection } from "@/components/video-intro-section";
 // <CHANGE> Removed VideoShowcaseSection import for simplicity and professionalism
 import { AboutSection } from "@/components/about-section";
 import { ProjectsSection } from "@/components/projects-section";
-import { BlogSection } from "@/components/blog-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 import { ChatModal } from "@/components/chat-modal";
@@ -28,10 +27,6 @@ export default function Home() {
 
       <IntersectionObserver>
         <ProjectsSection />
-      </IntersectionObserver>
-
-      <IntersectionObserver>
-        <BlogSection />
       </IntersectionObserver>
 
       <IntersectionObserver>

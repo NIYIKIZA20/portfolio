@@ -65,6 +65,50 @@ export function AboutSection() {
             </p>
           </div>
 
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-primary/5 to-accent/5">
+              <CardContent className="p-8 text-center">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-3">
+                  3+
+                </div>
+                <p
+                  className="text-lg text-muted-foreground"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Years Experience
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-primary/5 to-accent/5">
+              <CardContent className="p-8 text-center">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-3">
+                  25+
+                </div>
+                <p
+                  className="text-lg text-muted-foreground"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Projects Completed
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-primary/5 to-accent/5">
+              <CardContent className="p-8 text-center">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-3">
+                  10+
+                </div>
+                <p
+                  className="text-lg text-muted-foreground"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Technologies Mastered
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Skills Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
               <Card

@@ -1,6 +1,5 @@
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
-import { VideoIntroSection } from "@/components/video-intro-section";
 // <CHANGE> Removed VideoShowcaseSection import for simplicity and professionalism
 import { AboutSection } from "@/components/about-section";
 import { ProjectsSection } from "@/components/projects-section";
@@ -14,10 +13,6 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-
-      <IntersectionObserver>
-        <VideoIntroSection />
-      </IntersectionObserver>
 
       {/* <CHANGE> Removed VideoShowcaseSection for cleaner, more professional layout */}
 

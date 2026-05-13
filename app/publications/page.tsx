@@ -3,9 +3,9 @@ import { PublicationsList } from "@/components/publications/publications-list";
 import { PublicationsSidebar } from "@/components/publications/publications-sidebar";
 
 export const metadata = {
-  title: "Publications - Jean Baptiste N.",
+  title: "Publications - iyikiza",
   description:
-    "Academic publications, research papers, and scholarly articles by Jean Baptiste N.",
+    "Academic publications, research papers, and scholarly articles by Jean Baptiste Niyikiza.",
 };
 
 export default function PublicationsPage() {

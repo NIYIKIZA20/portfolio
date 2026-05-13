@@ -3,7 +3,7 @@ import { JournalEntries } from "@/components/journal/journal-entries";
 import { JournalSidebar } from "@/components/journal/journal-sidebar";
 
 export const metadata = {
-  title: "Reflectional Journal - Jean Baptiste N.",
+  title: "Reflectional Journal - Jean Baptiste Niyikiza",
   description:
     "Personal reflections, insights, and thoughts on my development journey, technology trends, and professional growth.",
 };

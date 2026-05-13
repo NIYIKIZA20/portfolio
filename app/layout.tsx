@@ -6,9 +6,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Jean Baptiste N. - Full Stack Developer",
+  title: "Jean Baptiste Niyikiza. - Full Stack Developer",
   description:
-    "Portfolio of Jean Baptiste N., a passionate Full Stack Web Developer specializing in modern web technologies.",
+    "Portfolio of Jean Baptiste Niyikiza, a passionate Embedded systems engineer and Full Stack Web Developer specializing in modern web technologies.",
   generator: "v0.app",
 };
 

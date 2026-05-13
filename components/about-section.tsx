@@ -43,7 +43,7 @@ export function AboutSection() {
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_MG_0087%20%281%29.jpg-Tlwy0Pa8KBN2SbcpmOuFl34qRBoxQN.jpeg"
-                    alt="Jean Baptiste N. - Full Stack Web Developer"
+                    alt="Jean Baptiste Niyikiza - Full Stack Web Developer and Embedded Systems Engineer"
                     width={160}
                     height={160}
                     className="w-full h-full object-cover"

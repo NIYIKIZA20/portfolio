@@ -13,7 +13,7 @@ export function Footer() {
               className="text-2xl font-bold text-primary mb-4 block"
             >
               <span style={{ fontFamily: "var(--font-heading)" }}>
-                Jean Baptiste N.
+                Jean Baptiste Niyikiza.
               </span>
             </Link>
             <p
@@ -110,7 +110,7 @@ export function Footer() {
             className="text-muted-foreground text-sm flex items-center gap-1"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            © 2024 Jean Baptiste N. All rights reserved.
+            © 2024 Jean Baptiste Niyikiza. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link

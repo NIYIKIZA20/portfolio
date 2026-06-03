@@ -30,47 +30,66 @@ export function HeroSection() {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(5,150,105,0.1),transparent_50%)]" />
+      {/* Background: layered gradient + dot grid */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/60 dark:from-slate-950 dark:via-gray-950 dark:to-indigo-950/50" />
+      <div
+        className="absolute inset-0 opacity-50 dark:opacity-25"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(148,163,184,0.22) 1px, transparent 1px)",
+          backgroundSize: "36px 36px",
+        }}
+      />
+      {/* Ambient radial light */}
+      <div className="absolute top-1/4 right-1/3 w-96 h-96 bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-indigo-400/10 dark:bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-          {/* Left Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
+
+          {/* Left: Text Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
-            {/* Greeting */}
-            <div className="mb-4 animate-fade-in">
-              <span
-                className="text-lg text-muted-foreground"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                Hello, my name is
+
+            {/* Greeting chip */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border/70 bg-background/80 backdrop-blur-sm text-sm text-muted-foreground mb-6 animate-fade-in shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
+              Hello, my name is
             </div>
 
             {/* Name */}
             <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-black mb-3 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-fade-in-up"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Jean Baptiste N.
-            </h1>
-
-            {/* Title */}
-            <h2
-              className="text-xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-4 animate-fade-in-up"
+              className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight animate-fade-in-up"
               style={{
                 fontFamily: "var(--font-heading)",
-                animationDelay: "0.2s",
+                animationDelay: "0.1s",
               }}
             >
-              Full Stack Web Developer
-            </h2>
+              <span className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400 bg-clip-text text-transparent">
+                Jean Baptiste N.
+              </span>
+            </h1>
+
+            {/* Title with accent underline */}
+            <div
+              className="mb-7 animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <h2
+                className="text-xl md:text-2xl lg:text-3xl font-semibold text-foreground/80"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Full Stack Web Developer
+              </h2>
+              <div className="mt-3 h-1 w-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto lg:mx-0" />
+            </div>
 
             {/* Description */}
             <p
-              className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 leading-relaxed animate-fade-in-up"
-              style={{ fontFamily: "var(--font-body)", animationDelay: "0.4s" }}
+              className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed animate-fade-in-up max-w-lg mx-auto lg:mx-0"
+              style={{ fontFamily: "var(--font-body)", animationDelay: "0.3s" }}
             >
               I create exceptional digital experiences through innovative web
               solutions. Passionate about turning ideas into reality with modern
@@ -80,20 +99,22 @@ export function HeroSection() {
             {/* CTA Buttons */}
             <div
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8 animate-fade-in-up"
-              style={{ animationDelay: "0.6s" }}
+              style={{ animationDelay: "0.4s" }}
             >
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground animate-pulse-glow shadow-professional"
+                className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-slate-100 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 font-semibold"
                 onClick={handleViewWork}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 View My Work
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent shadow-professional"
+                className="border-2 border-border hover:border-slate-400 dark:hover:border-slate-500 hover:bg-muted/60 transition-all duration-300 hover:-translate-y-0.5 font-semibold"
                 onClick={handleDownloadCV}
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 <Download className="h-4 w-4 mr-2" />
                 Download CV
@@ -102,73 +123,102 @@ export function HeroSection() {
 
             {/* Social Links */}
             <div
-              className="flex justify-center lg:justify-start space-x-6 animate-fade-in-up"
-              style={{ animationDelay: "0.8s" }}
+              className="flex justify-center lg:justify-start gap-3 animate-fade-in-up"
+              style={{ animationDelay: "0.5s" }}
             >
               <a
                 href="https://github.com/NIYIKIZA20"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:scale-110 transform"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-foreground hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
                 aria-label="GitHub Profile"
               >
-                <Github className="h-6 w-6" />
+                <Github className="h-4 w-4" />
               </a>
               <a
                 href="https://www.linkedin.com/in/niyikiza-jean-baptiste2025/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:scale-110 transform"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-blue-500 hover:text-blue-500 hover:bg-blue-500/5 transition-all duration-300"
                 aria-label="LinkedIn Profile"
               >
-                <Linkedin className="h-6 w-6" />
+                <Linkedin className="h-4 w-4" />
               </a>
               <a
                 href="mailto:jbniyikiza20@gmail.com"
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 hover:scale-110 transform"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-foreground hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
                 aria-label="Send Email"
               >
-                <Mail className="h-6 w-6" />
+                <Mail className="h-4 w-4" />
               </a>
             </div>
           </div>
 
+          {/* Right: Profile Image - Portrait Style */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div
               className="relative animate-fade-in-up"
-              style={{ animationDelay: "0.3s" }}
+              style={{ animationDelay: "0.2s" }}
             >
-              {/* Profile Image Container */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                {/* Gradient Background Circle */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 animate-pulse-slow" />
+              {/* Soft ambient glow behind image */}
+              <div className="absolute -inset-10 bg-gradient-to-br from-blue-400/15 via-indigo-400/10 to-purple-400/10 dark:from-blue-500/25 dark:via-indigo-500/20 dark:to-purple-500/15 rounded-full blur-3xl pointer-events-none" />
 
-                {/* Outer Ring */}
-                <div className="absolute inset-2 rounded-full border-2 border-primary/30 animate-spin-slow" />
+              {/* Offset decorative background frame */}
+              <div className="absolute inset-0 translate-x-4 translate-y-5 rounded-2xl bg-gradient-to-br from-slate-200/90 to-slate-100/70 dark:from-slate-700/60 dark:to-slate-800/50 border border-slate-300/60 dark:border-slate-600/30" />
 
-                {/* Profile Image */}
-                <div className="absolute inset-4 rounded-full overflow-hidden shadow-2xl ring-4 ring-primary/20 hover:ring-primary/40 transition-all duration-300">
-                  <Image
-                    src="/jean-baptiste-profile.jpg"
-                    alt="Jean Baptiste Niyikiza - Full Stack Web Developer"
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
-                    priority
-                  />
-                </div>
-
-                {/* Floating Elements */}
-                {/* <div
-                  className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full animate-bounce"
-                  style={{ animationDelay: "0.5s" }}
+              {/* Main image container — portrait shape, rounded corners */}
+              <div className="relative w-72 h-[26rem] md:w-80 md:h-[28rem] lg:w-[22rem] lg:h-[30rem] rounded-2xl overflow-hidden
+                shadow-[0_20px_60px_-10px_rgba(0,0,0,0.20),0_8px_20px_-8px_rgba(0,0,0,0.12)]
+                dark:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.65),0_8px_20px_-8px_rgba(0,0,0,0.40)]
+                ring-1 ring-black/8 dark:ring-white/8">
+                <Image
+                  src="/jean-baptiste-profile.jpg"
+                  alt="Jean Baptiste Niyikiza - Full Stack Web Developer"
+                  fill
+                  className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                  priority
                 />
+                {/* Subtle vignette at bottom */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Floating: Available for Work badge */}
+              <div className="absolute -bottom-5 -left-6 bg-card/95 backdrop-blur-md border border-border/70 rounded-xl px-4 py-2.5 shadow-xl animate-float z-10">
+                <div className="flex items-center gap-2.5">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                  </span>
+                  <span
+                    className="text-sm font-semibold text-foreground whitespace-nowrap"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    Available for Work
+                  </span>
+                </div>
+              </div>
+
+              {/* Floating: Experience card */}
+              <div
+                className="absolute -top-5 -right-6 bg-card/95 backdrop-blur-md border border-border/70 rounded-xl px-4 py-3 shadow-xl z-10 text-center min-w-[76px] animate-float"
+                style={{ animationDelay: "1.2s" }}
+              >
                 <div
-                  className="absolute -bottom-4 -left-4 w-4 h-4 bg-accent rounded-full animate-bounce"
-                  style={{ animationDelay: "1s" }}
-                /> */}
+                  className="text-2xl font-black text-foreground leading-none"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  3+
+                </div>
+                <div
+                  className="text-xs text-muted-foreground font-medium mt-0.5 tracking-wide"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Years Exp.
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

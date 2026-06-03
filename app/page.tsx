@@ -20,6 +20,7 @@ export default function Home() {
         <meta property="og:description" content="Explore web platforms and innovative IoT projects built by JB." />
         <meta property="og:image" content="https://yourportfolio.vercel.app/og-image.jpg" />
       </Head>
+      <Header />
       <HeroSection />
       
       <IntersectionObserver>

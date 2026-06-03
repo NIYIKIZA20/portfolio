@@ -68,7 +68,7 @@ export function HeroSection() {
               }}
             >
               <span className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400 bg-clip-text text-transparent">
-                Jean Baptiste N.
+                Jean Baptiste Niyikiza
               </span>
             </h1>
 
@@ -182,40 +182,6 @@ export function HeroSection() {
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />
               </div>
 
-              {/* Floating: Available for Work badge */}
-              <div className="absolute -bottom-5 -left-6 bg-card/95 backdrop-blur-md border border-border/70 rounded-xl px-4 py-2.5 shadow-xl animate-float z-10">
-                <div className="flex items-center gap-2.5">
-                  <span className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                  </span>
-                  <span
-                    className="text-sm font-semibold text-foreground whitespace-nowrap"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    Available for Work
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating: Experience card */}
-              <div
-                className="absolute -top-5 -right-6 bg-card/95 backdrop-blur-md border border-border/70 rounded-xl px-4 py-3 shadow-xl z-10 text-center min-w-[76px] animate-float"
-                style={{ animationDelay: "1.2s" }}
-              >
-                <div
-                  className="text-2xl font-black text-foreground leading-none"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  3+
-                </div>
-                <div
-                  className="text-xs text-muted-foreground font-medium mt-0.5 tracking-wide"
-                  style={{ fontFamily: "var(--font-body)" }}
-                >
-                  Years Exp.
-                </div>
-              </div>
             </div>
           </div>
 

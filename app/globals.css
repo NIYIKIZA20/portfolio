@@ -136,6 +136,20 @@
   }
 }
 
+/* Horizontal marquee carousel */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Custom animations */
 @keyframes fade-in {
   from {

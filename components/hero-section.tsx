@@ -81,7 +81,7 @@ export function HeroSection() {
                 className="text-xl md:text-2xl lg:text-3xl font-semibold text-foreground/80"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Full Stack Web Developer
+                Embedded Systems and Web Developer
               </h2>
               <div className="mt-3 h-1 w-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto lg:mx-0" />
             </div>

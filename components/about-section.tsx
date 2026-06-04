@@ -51,7 +51,7 @@ export function AboutSection() {
               className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              I&apos;m a passionate Full Stack Web Developer with expertise in modern
+              I&apos;m a passionate Embedded Systems Engineer and Full Stack Web Developer with expertise in modern
               web technologies. I love creating digital solutions that make a
               difference — combining technical excellence with user-centered
               design to deliver exceptional experiences.

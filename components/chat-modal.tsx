@@ -105,7 +105,7 @@ export function ChatModal() {
     ) {
       return {
         id: messageId,
-        content: `I'm a seasoned Full Stack Web Developer with 5+ years of professional experience. I've worked on diverse projects ranging from e-commerce platforms to AI-powered applications.
+        content: `I'm a seasoned Embedded Systems Engineer and Full Stack Web Developer with 5+ years of professional experience. I've worked on diverse projects ranging from e-commerce platforms to AI-powered applications.
 
 **My Key Highlights:**
 • 50+ successful projects delivered

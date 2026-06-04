@@ -1,7 +1,6 @@
 import { Header } from "@/components/header";
 import Head from 'next/head';
 import { HeroSection } from "@/components/hero-section";
-// <CHANGE> Removed VideoShowcaseSection import for simplicity and professionalism
 import { AboutSection } from "@/components/about-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { ContactSection } from "@/components/contact-section";

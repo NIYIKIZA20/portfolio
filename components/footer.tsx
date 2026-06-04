@@ -20,7 +20,7 @@ export function Footer() {
               className="text-muted-foreground mb-6 max-w-md"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Full Stack Web Developer passionate about creating exceptional
+              Embedded Systems and Web Developer passionate about creating exceptional
               digital experiences through innovative web solutions and clean,
               efficient code.
             </p>

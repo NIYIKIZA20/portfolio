@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Facebook } from "lucide-react";
+import { WhatsAppIcon, XIcon } from "@/components/icons/social-icons";
 import Link from "next/link";
 
 export function Footer() {
@@ -26,7 +27,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com"
+                href="https://github.com/NIYIKIZA20"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -35,7 +36,7 @@ export function Footer() {
                 <span className="sr-only">GitHub</span>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/niyikiza-jean-baptiste2025/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -44,7 +45,34 @@ export function Footer() {
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a
-                href="mailto:contact@jeanbaptiste.dev"
+                href="https://www.facebook.com/niyikizajb/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200"
+              >
+                <Facebook className="h-5 w-5" />
+                <span className="sr-only">Facebook</span>
+              </a>
+              <a
+                href="https://x.com/jb_niyikiza"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200"
+              >
+                <XIcon className="h-5 w-5" />
+                <span className="sr-only">X (Twitter)</span>
+              </a>
+              <a
+                href="https://wa.me/250789092847"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200"
+              >
+                <WhatsAppIcon className="h-5 w-5" />
+                <span className="sr-only">WhatsApp</span>
+              </a>
+              <a
+                href="mailto:jbniyikiza20@gmail.com"
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 <Mail className="h-5 w-5" />

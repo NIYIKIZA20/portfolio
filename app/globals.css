@@ -207,6 +207,25 @@
   animation: pulse-glow 2s infinite;
 }
 
+/* Hero portrait: fade/slide in, then gently float */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-hero-image {
+  opacity: 0;
+  animation:
+    fade-in-up 0.8s ease-out forwards,
+    float 6s ease-in-out infinite;
+  animation-delay: 0.2s, 1s;
+}
+
 /* Intersection Observer animations */
 .animate-on-scroll {
   opacity: 0;

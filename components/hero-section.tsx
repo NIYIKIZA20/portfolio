@@ -1,7 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Download } from "lucide-react";
+import { Github, Linkedin, Mail, Download, Facebook } from "lucide-react";
+import { WhatsAppIcon, XIcon } from "@/components/icons/social-icons";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -50,14 +51,13 @@ export function HeroSection() {
           {/* Left: Text Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
 
-            {/* Greeting chip */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border/70 bg-background/80 backdrop-blur-sm text-sm text-muted-foreground mb-6 animate-fade-in shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
+            {/* Greeting */}
+            <p
+              className="text-base md:text-lg font-medium text-muted-foreground mb-3 animate-fade-in"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
               Hello, my name is
-            </div>
+            </p>
 
             {/* Name */}
             <h1
@@ -151,20 +151,44 @@ export function HeroSection() {
               >
                 <Mail className="h-4 w-4" />
               </a>
+              <a
+                href="https://www.facebook.com/niyikizajb/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-blue-600 hover:text-blue-600 hover:bg-blue-600/5 transition-all duration-300"
+                aria-label="Facebook Profile"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a
+                href="https://x.com/jb_niyikiza"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-foreground hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
+                aria-label="X (Twitter) Profile"
+              >
+                <XIcon className="h-4 w-4" />
+              </a>
+              <a
+                href="https://wa.me/250789092847"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-emerald-500 hover:text-emerald-500 hover:bg-emerald-500/5 transition-all duration-300"
+                aria-label="Chat on WhatsApp"
+              >
+                <WhatsAppIcon className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
           {/* Right: Profile Image - Portrait Style */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-            <div
-              className="relative animate-fade-in-up"
-              style={{ animationDelay: "0.2s" }}
-            >
+            <div className="relative animate-hero-image">
               {/* Soft ambient glow behind image */}
-              <div className="absolute -inset-10 bg-gradient-to-br from-blue-400/15 via-indigo-400/10 to-purple-400/10 dark:from-blue-500/25 dark:via-indigo-500/20 dark:to-purple-500/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -inset-8 bg-gradient-to-br from-blue-400/20 via-indigo-400/15 to-purple-400/10 dark:from-blue-500/25 dark:via-indigo-500/20 dark:to-purple-500/15 rounded-[2rem] blur-2xl pointer-events-none" />
 
-              {/* Offset decorative background frame */}
-              <div className="absolute inset-0 translate-x-4 translate-y-5 rounded-2xl bg-gradient-to-br from-slate-200/90 to-slate-100/70 dark:from-slate-700/60 dark:to-slate-800/50 border border-slate-300/60 dark:border-slate-600/30" />
+              {/* Animated gradient ring */}
+              <div className="absolute -inset-1 rounded-[1.75rem] bg-gradient-to-br from-blue-500/40 via-indigo-500/30 to-purple-500/40 opacity-60 blur-sm" />
 
               {/* Main image container — portrait shape, rounded corners */}
               <div className="relative w-72 h-[26rem] md:w-80 md:h-[28rem] lg:w-[22rem] lg:h-[30rem] rounded-2xl overflow-hidden

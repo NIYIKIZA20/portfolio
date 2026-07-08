@@ -17,6 +17,7 @@ import {
   Linkedin,
   Facebook,
 } from "lucide-react";
+import { WhatsAppIcon, XIcon } from "@/components/icons/social-icons";
 import { LoadingSpinner } from "@/components/loading-spinner";
 
 export function ContactSection() {
@@ -208,13 +209,31 @@ export function ContactSection() {
                     <Linkedin className="h-4 w-4" />
                   </a>
                   <a
-                    href="https://www.facebook.com/niyikizajb"
+                    href="https://www.facebook.com/niyikizajb/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-blue-600 hover:text-blue-600 hover:bg-blue-600/5 transition-all duration-300"
                     aria-label="Facebook Profile"
                   >
                     <Facebook className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://x.com/jb_niyikiza"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-foreground hover:text-foreground hover:bg-foreground/5 transition-all duration-300"
+                    aria-label="X (Twitter) Profile"
+                  >
+                    <XIcon className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://wa.me/250789092847"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-emerald-500 hover:text-emerald-500 hover:bg-emerald-500/5 transition-all duration-300"
+                    aria-label="Chat on WhatsApp"
+                  >
+                    <WhatsAppIcon className="h-4 w-4" />
                   </a>
                 </div>
               </div>

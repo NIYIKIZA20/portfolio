@@ -124,7 +124,7 @@ export function PublicationsSidebar() {
               Google Scholar
             </a>
             <a
-              href="https://orcid.org"
+              href="https://orcid.org/0009-0009-5918-9323"
               target="_blank"
               rel="noopener noreferrer"
               className="block text-sm text-primary hover:text-primary/80 transition-colors"

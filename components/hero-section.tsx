@@ -92,8 +92,7 @@ export function HeroSection() {
               style={{ fontFamily: "var(--font-body)", animationDelay: "0.3s" }}
             >
               I create exceptional digital experiences through innovative web
-              solutions. Passionate about turning ideas into reality with modern
-              technologies and clean, efficient code.
+              solutions. Passionate about turning ideas into reality with modern engineering practices and cutting-edge technologies.
             </p>
 
             {/* CTA Buttons */}

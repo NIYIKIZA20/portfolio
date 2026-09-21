@@ -68,7 +68,7 @@ export function HeroSection() {
               }}
             >
               <span className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 dark:from-white dark:via-slate-200 dark:to-slate-400 bg-clip-text text-transparent">
-                Jean Baptiste Niyikiza
+                JB Niyikiza
               </span>
             </h1>
 
@@ -81,7 +81,7 @@ export function HeroSection() {
                 className="text-xl md:text-2xl lg:text-3xl font-semibold text-foreground/80"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Embedded Systems and Web Developer
+                Smart Manufacturing | Embedded Systems & IoT 
               </h2>
               <div className="mt-3 h-1 w-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto lg:mx-0" />
             </div>
@@ -91,8 +91,9 @@ export function HeroSection() {
               className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed animate-fade-in-up max-w-lg mx-auto lg:mx-0"
               style={{ fontFamily: "var(--font-body)", animationDelay: "0.3s" }}
             >
-              I create exceptional digital experiences through innovative web
-              solutions. Passionate about turning ideas into reality with modern engineering practices and cutting-edge technologies.
+             Smart Manufacturing Engineer with a background in Electronics and Telecommunications, combining expertise in 
+             additive manufacturing, 3D/4D modelling and printing, semiconductor fabrication, PCB design, and embedded and IoT 
+             systems. 
             </p>
 
             {/* CTA Buttons */}

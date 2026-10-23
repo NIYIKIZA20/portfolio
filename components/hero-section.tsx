@@ -15,7 +15,7 @@ export function HeroSection() {
 
   const handleDownloadCV = () => {
     window.open(
-      "https://drive.google.com/file/d/1yw5e9MObECB6LTKeRFrHER-496jHOyk-/view?usp=drive_link",
+      "https://drive.google.com/file/d/1GZtxOuLvBuxRHpYOXSKltdxlfHur-6tF/view?usp=drive_link",
       "_blank",
     );
   };

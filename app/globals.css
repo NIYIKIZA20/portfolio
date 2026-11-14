@@ -274,3 +274,20 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary) / 80;
 }
+
+/* Skill level bars fill in when a tab opens */
+@keyframes grow-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.animate-grow-x {
+  animation: grow-x 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-grow-x,
+  .animate-marquee {
+    animation: none;
+  }
+}

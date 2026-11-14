@@ -1,19 +1,9 @@
 "use client";
 
-import type React from "react";
-
 import { useState } from "react";
 import Image from "next/image";
-import { Briefcase, ExternalLink, Award, Users, Languages } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  skillAreas,
-  experience,
-  leadership,
-  awards,
-  languages,
-  type SkillLevel,
-} from "@/lib/profile-data";
+import { ArrowUpRight } from "lucide-react";
+import { skillAreas, workedWith, type SkillLevel } from "@/lib/profile-data";
 
 const levelWidth: Record<SkillLevel, string> = {
   Advanced: "w-[90%]",
@@ -24,33 +14,31 @@ const levelWidth: Record<SkillLevel, string> = {
 export function SkillsExperienceSection() {
   const [activeId, setActiveId] = useState(skillAreas[0].id);
   const active = skillAreas.find((a) => a.id === activeId) ?? skillAreas[0];
-  const roles = experience.filter((e) => active.relatedRoles.includes(e.role));
 
   return (
-    <section id="skills" className="py-24 bg-muted/25 dark:bg-muted/10 scroll-mt-16">
+    <section id="skills" className="py-24 bg-muted/25 dark:bg-muted/10 scroll-mt-16 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
 
           {/* Section heading */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
+            <p
+              className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-3"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              What I build
+            </p>
             <h2
-              className="text-3xl md:text-4xl font-bold mb-3"
+              className="text-3xl md:text-4xl font-bold"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Skills &amp; Experience
             </h2>
-            <div className="mx-auto mt-3 mb-6 h-1 w-14 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full" />
-            <p
-              className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Pick an area to see skill levels, the projects behind them, and
-              where I applied them.
-            </p>
+            <div className="mx-auto mt-4 h-1 w-14 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full" />
           </div>
 
           {/* Area tabs */}
-          <div role="tablist" className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10">
+          <div role="tablist" className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
             {skillAreas.map((area) => {
               const isActive = area.id === activeId;
               return (
@@ -60,258 +48,186 @@ export function SkillsExperienceSection() {
                   aria-selected={isActive}
                   aria-controls="skill-panel"
                   onClick={() => setActiveId(area.id)}
-                  className={`group text-center rounded-xl border p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer ${
+                  className={`flex items-center gap-3 rounded-xl border px-4 py-3.5 text-left transition-all duration-300 cursor-pointer ${
                     isActive
-                      ? "bg-card border-foreground/40 shadow-lg ring-1 ring-foreground/10"
-                      : "bg-card/60 border-border/60"
+                      ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-transparent shadow-xl scale-[1.02]"
+                      : "bg-card border-border/60 hover:border-foreground/30 hover:-translate-y-0.5"
                   }`}
                 >
-                  <div className="mb-3 flex justify-center">
-                    <div className={`p-3 rounded-xl ${area.bg}`}>
-                      <area.icon className={`h-7 w-7 ${area.color}`} />
-                    </div>
-                  </div>
-                  <h3
-                    className="text-sm md:text-base font-semibold leading-snug"
+                  <span
+                    className={`shrink-0 p-2 rounded-lg ${
+                      isActive ? "bg-white/15 dark:bg-slate-900/10" : area.bg
+                    }`}
+                  >
+                    <area.icon className={`h-5 w-5 ${isActive ? "" : area.color}`} />
+                  </span>
+                  <span
+                    className="text-sm font-semibold leading-tight"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {area.title}
-                  </h3>
+                  </span>
                 </button>
               );
             })}
           </div>
 
-          {/* Active area details */}
-          <Card id="skill-panel" role="tabpanel" className="border-border/60 mb-20">
-            <CardContent className="p-6 md:p-10">
-              <p
-                className="text-lg text-muted-foreground mb-8 leading-relaxed"
-                style={{ fontFamily: "var(--font-body)" }}
+          {/* Active area: skills left, image right. Keyed so it re-animates on tab change */}
+          <div
+            key={active.id}
+            id="skill-panel"
+            role="tabpanel"
+            className="grid grid-cols-1 lg:grid-cols-2 rounded-3xl border border-border/60 bg-card overflow-hidden shadow-sm animate-fade-in-up"
+          >
+            <div className="p-7 md:p-10 flex flex-col justify-center">
+              <h3
+                className="text-2xl md:text-3xl font-bold mb-8 leading-tight"
+                style={{ fontFamily: "var(--font-heading)" }}
               >
-                {active.summary}
-              </p>
+                {active.tagline}
+              </h3>
+              <ul className="space-y-5">
+                {active.skills.map((skill) => (
+                  <li key={skill.name}>
+                    <div
+                      className="flex justify-between text-sm mb-2"
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
+                      <span className="font-medium">{skill.name}</span>
+                      <span className="text-muted-foreground text-xs">{skill.level}</span>
+                    </div>
+                    <div className="h-2 rounded-full bg-muted overflow-hidden">
+                      <div
+                        className={`h-full rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 origin-left animate-grow-x ${levelWidth[skill.level]}`}
+                      />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                {/* Skill levels */}
-                <div>
-                  <h4
-                    className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    Skill level
-                  </h4>
-                  <ul className="space-y-4">
-                    {active.skills.map((skill) => (
-                      <li key={skill.name}>
-                        <div
-                          className="flex justify-between text-sm mb-1.5"
-                          style={{ fontFamily: "var(--font-body)" }}
-                        >
-                          <span className="font-medium">{skill.name}</span>
-                          <span className="text-muted-foreground">{skill.level}</span>
-                        </div>
-                        <div className="h-1.5 rounded-full bg-muted overflow-hidden">
-                          <div
-                            className={`h-full rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 ${levelWidth[skill.level]}`}
-                          />
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <div className="relative min-h-[18rem] lg:min-h-full bg-muted">
+              <Image
+                src={active.image}
+                alt={active.title}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 flex items-center gap-3 text-white">
+                <span className="p-2.5 rounded-xl bg-white/15 backdrop-blur-md">
+                  <active.icon className="h-6 w-6" />
+                </span>
+                <span
+                  className="text-xl font-bold"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {active.title}
+                </span>
+              </div>
+            </div>
+          </div>
 
-                {/* Where it was applied */}
-                <div className="space-y-8">
-                  {roles.length > 0 && (
-                    <div>
+          {/* Projects for the active area */}
+          {active.projects.length > 0 && (
+            <div key={`${active.id}-projects`} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 animate-fade-in-up">
+              {active.projects.map((project) => {
+                const card = (
+                  <>
+                    <div className="relative h-44 overflow-hidden bg-muted">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {project.url && (
+                        <span className="absolute top-3 right-3 p-2 rounded-full bg-white/90 text-slate-900 opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                          <ArrowUpRight className="h-4 w-4" />
+                        </span>
+                      )}
+                    </div>
+                    <div className="p-5">
                       <h4
-                        className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5"
+                        className="font-bold mb-1"
                         style={{ fontFamily: "var(--font-heading)" }}
                       >
-                        Applied at
+                        {project.title}
                       </h4>
-                      <ul className="space-y-3">
-                        {roles.map((r) => (
-                          <li key={r.role + r.company} className="flex gap-3">
-                            <Briefcase className="h-4 w-4 mt-1 shrink-0 text-muted-foreground" />
-                            <div style={{ fontFamily: "var(--font-body)" }}>
-                              <p className="font-medium text-sm">{r.role}</p>
-                              <p className="text-xs text-muted-foreground">
-                                {r.company} · {r.period}
-                              </p>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {active.id === "others" && (
-                    <>
-                      <InfoList icon={Users} title="Leadership & volunteering">
-                        {leadership.map((l) => (
-                          <li key={l.role}>
-                            <p className="font-medium text-sm">{l.role}</p>
-                            <p className="text-xs text-muted-foreground">
-                              {l.org} · {l.period}
-                            </p>
-                          </li>
-                        ))}
-                      </InfoList>
-                      <InfoList icon={Award} title="Certifications & awards">
-                        {awards.map((a) => (
-                          <li key={a} className="text-sm">{a}</li>
-                        ))}
-                      </InfoList>
-                      <InfoList icon={Languages} title="Languages">
-                        {languages.map((l) => (
-                          <li key={l.name} className="text-sm">
-                            <span className="font-medium">{l.name}</span>
-                            <span className="text-muted-foreground"> · {l.level}</span>
-                          </li>
-                        ))}
-                      </InfoList>
-                    </>
-                  )}
-                </div>
-              </div>
-
-              {/* Projects */}
-              {active.projects.length > 0 && (
-                <div className="mt-12">
-                  <h4
-                    className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    Projects
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {active.projects.map((project) => (
-                      <div
-                        key={project.title}
-                        className="group flex flex-col overflow-hidden rounded-xl border border-border bg-background hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      <p
+                        className="text-sm text-muted-foreground mb-3"
+                        style={{ fontFamily: "var(--font-body)" }}
                       >
-                        <div className="relative h-40 overflow-hidden bg-muted">
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-                        <div className="flex flex-col flex-1 p-5 gap-3">
-                          <h5
-                            className="font-bold leading-tight"
-                            style={{ fontFamily: "var(--font-heading)" }}
-                          >
-                            {project.title}
-                          </h5>
-                          <p
-                            className="text-sm text-muted-foreground leading-relaxed flex-1"
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-medium rounded-md"
                             style={{ fontFamily: "var(--font-body)" }}
                           >
-                            {project.description}
-                          </p>
-                          <div className="flex flex-wrap gap-1.5">
-                            {project.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="px-2 py-0.5 bg-muted text-muted-foreground text-xs font-medium rounded-md border border-border/60"
-                                style={{ fontFamily: "var(--font-body)" }}
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                          {project.url && (
-                            <a
-                              href={project.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline"
-                              style={{ fontFamily: "var(--font-heading)" }}
-                            >
-                              <ExternalLink className="h-3.5 w-3.5" />
-                              View
-                            </a>
-                          )}
-                        </div>
+                            {tag}
+                          </span>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+                  </>
+                );
+                const className =
+                  "group block overflow-hidden rounded-2xl border border-border/60 bg-card hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500";
+                return project.url ? (
+                  <a
+                    key={project.title}
+                    href={project.url}
+                    target={project.url.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    className={className}
+                  >
+                    {card}
+                  </a>
+                ) : (
+                  <div key={project.title} className={className}>
+                    {card}
                   </div>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-
-          {/* Experience timeline */}
-          <h3
-            className="text-2xl md:text-3xl font-bold mb-10 text-center"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Experience
-          </h3>
-          <ol className="relative border-l-2 border-border ml-3 space-y-10">
-            {experience.map((job) => (
-              <li key={job.role + job.company} className="pl-8 relative">
-                <span className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 ring-4 ring-background" />
-                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-2">
-                  <h4
-                    className="text-lg font-bold"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {job.role}
-                    <span className="font-medium text-blue-600 dark:text-blue-400">
-                      {" "}· {job.company}
-                    </span>
-                  </h4>
-                  <span
-                    className="text-sm text-muted-foreground shrink-0 italic"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    {job.period}
-                  </span>
-                </div>
-                <ul
-                  className="list-disc pl-5 space-y-1 text-muted-foreground"
-                  style={{ fontFamily: "var(--font-body)" }}
-                >
-                  {job.points.map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ol>
+                );
+              })}
+            </div>
+          )}
 
         </div>
       </div>
-    </section>
-  );
-}
 
-function InfoList({
-  icon: Icon,
-  title,
-  children,
-}: {
-  icon: React.ElementType;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <h4
-        className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4"
-        style={{ fontFamily: "var(--font-heading)" }}
-      >
-        <Icon className="h-4 w-4" />
-        {title}
-      </h4>
-      <ul className="space-y-2.5" style={{ fontFamily: "var(--font-body)" }}>
-        {children}
-      </ul>
-    </div>
+      {/* Where I've built: names only, the CV has the details */}
+      <div className="mt-20">
+        <p
+          className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-6"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          Where I&apos;ve built &amp; taught
+        </p>
+        <div
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee gap-14 pr-14">
+            {[...workedWith, ...workedWith].map((name, i) => (
+              <span
+                key={i}
+                className="text-xl md:text-2xl font-bold text-foreground/35 hover:text-foreground transition-colors whitespace-nowrap"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

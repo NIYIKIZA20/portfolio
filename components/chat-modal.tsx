@@ -16,6 +16,7 @@ import {
   Download,
   ExternalLink,
 } from "lucide-react";
+import { CV_URL } from "@/lib/profile-data";
 
 interface Message {
   id: string;
@@ -32,10 +33,10 @@ interface Message {
 
 const quickSuggestions = [
   "Tell me about Jean Baptiste's experience",
-  "What technologies does he work with?",
-  "Show me his recent projects",
-  "How can I hire him?",
-  "What's his development process?",
+  "What are his skills?",
+  "Show me his projects",
+  "Where did he study?",
+  "How can I contact him?",
 ];
 
 export function ChatModal() {
@@ -59,7 +60,7 @@ export function ChatModal() {
       const welcomeMessage: Message = {
         id: "welcome",
         content:
-          "Hi, I am JB Niyikiza! What can I help you with? I'm here to discuss my experience, projects, and how we can work together on your next development project.",
+          "Hi, I am JB Niyikiza! Ask me about my experience, skills, projects, education, or how to get in touch.",
         sender: "bot",
         timestamp: new Date(),
         type: "text",
@@ -93,9 +94,46 @@ export function ChatModal() {
     }, 1500);
   };
 
+  const scrollTo = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
   const getEnhancedBotResponse = (userInput: string): Message => {
     const input = userInput.toLowerCase();
     const messageId = (Date.now() + 1).toString();
+    const reply = (
+      content: string,
+      actions?: Message["actions"],
+    ): Message => ({
+      id: messageId,
+      content,
+      sender: "bot",
+      timestamp: new Date(),
+      type: actions ? "action" : "text",
+      actions,
+    });
+
+    // Education
+    if (
+      input.includes("study") ||
+      input.includes("education") ||
+      input.includes("school") ||
+      input.includes("university") ||
+      input.includes("degree")
+    ) {
+      return reply(
+        `**Education:**
+• MSc, Smart Manufacturing, Nanyang Technological University (NTU) Singapore (Jun 2026 – Jun 2027)
+• BEng, Electronics and Telecommunication Engineering, University of Rwanda (2021 – 2025), GPA 3.5/4.0
+• High School Diploma, Mathematics, Physics and Chemistry, Petit Séminaire St. Vincent de Paul, Ndera (score 73/73)`,
+        [
+          {
+            label: "See Education",
+            action: () => scrollTo("education"),
+            icon: <ExternalLink className="h-4 w-4" />,
+          },
+        ],
+      );
+    }
 
     // Experience and Background
     if (
@@ -103,294 +141,119 @@ export function ChatModal() {
       input.includes("background") ||
       input.includes("about")
     ) {
-      return {
-        id: messageId,
-        content: `I'm a seasoned Embedded Systems Engineer and Full Stack Web Developer with 5+ years of professional experience. I've worked on diverse projects ranging from e-commerce platforms to AI-powered applications.
+      return reply(
+        `I'm a Smart Manufacturing engineer with a background in Electronics and Telecommunications.
 
-**My Key Highlights:**
-• 50+ successful projects delivered
-• Expertise in modern web technologies (React, Next.js, Node.js)
-• Strong background in both frontend and backend development
-• Experience with cloud platforms and DevOps practices
-• Passionate about creating scalable, user-friendly applications
-
-I'm particularly skilled at taking projects from concept to deployment, ensuring both technical excellence and great user experience.`,
-        sender: "bot",
-        timestamp: new Date(),
-        type: "action",
-        actions: [
+**Recent roles:**
+• Embedded Systems and IoT Engineer, Beno Holdings (2026)
+• Computer Literacy Instructor, Alight Rwanda (2025)
+• Perception Annotation and Review Engineer, ReadyToBloom Inc., Japan (2025)
+• Embedded Systems Trainer, Unipod and FabLab, University of Rwanda (2025)
+• Firmware Engineer, Beno Holdings (2024 – 2025)
+• Firmware and IoT Trainer, Kagoma Tech (2023 – 2025)`,
+        [
           {
             label: "View My CV",
-            action: () =>
-              window.open(
-                "https://docs.google.com/document/d/1ffuINqC_QJB0kCKz892DSso3-QS9sbWR9aOeQW6RO9g/edit",
-                "_blank",
-              ),
+            action: () => window.open(CV_URL, "_blank"),
             icon: <Download className="h-4 w-4" />,
           },
           {
-            label: "Watch My Introduction",
-            action: () =>
-              document
-                .getElementById("home")
-                ?.scrollIntoView({ behavior: "smooth" }),
+            label: "See Experience",
+            action: () => scrollTo("skills"),
             icon: <ExternalLink className="h-4 w-4" />,
           },
         ],
-      };
+      );
     }
 
     // Skills and Technologies
     if (
-      input.includes("skills") ||
-      input.includes("technologies") ||
+      input.includes("skill") ||
+      input.includes("technolog") ||
       input.includes("tech stack")
     ) {
-      return {
-        id: messageId,
-        content: `I've mastered a comprehensive tech stack:
+      return reply(
+        `**Embedded Systems & IoT:** microcontroller firmware, sensors, real-time data acquisition, cloud integration, PCB design (Altium, EasyEDA)
 
-**Frontend Development:**
-• React, Next.js, TypeScript
-• Tailwind CSS, Styled Components
-• State Management (Redux, Zustand)
-• Modern JavaScript (ES6+)
+**3D Printing & Enclosure Design:** SolidWorks, Fusion CAD, 3D modelling, Creality printing, 3D & 4D printing workflows
 
-**Backend Development:**
-• Node.js, Express.js
-• Python, Django/Flask
-• RESTful APIs, GraphQL
-• Authentication & Authorization
+**Software Development:** React, Next.js, Node.js, Nest.js, Express, PostgreSQL, MongoDB, Docker
 
-**Databases:**
-• PostgreSQL, MongoDB
-• Redis for caching
-• Database design & optimization
-
-**DevOps & Tools:**
-• Git, Docker, CI/CD
-• AWS, Vercel, Netlify
-• Testing (Jest, Cypress)
-• Agile methodologies
-
-I stay current with industry trends and continuously learn new technologies to deliver cutting-edge solutions.`,
-        sender: "bot",
-        timestamp: new Date(),
-        type: "action",
-        actions: [
+**Others:** research and technical writing, perception annotation, technical training, MATLAB, Origin Pro`,
+        [
           {
-            label: "View My Projects",
-            action: () =>
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" }),
+            label: "See Skills",
+            action: () => scrollTo("skills"),
             icon: <ExternalLink className="h-4 w-4" />,
           },
         ],
-      };
+      );
     }
 
-    // Projects and Portfolio
+    // Projects and Publications
     if (
-      input.includes("projects") ||
+      input.includes("project") ||
       input.includes("portfolio") ||
-      input.includes("work")
+      input.includes("work") ||
+      input.includes("publication") ||
+      input.includes("research")
     ) {
-      return {
-        id: messageId,
-        content: `I've built impressive projects showcasing my full-stack capabilities:
+      return reply(
+        `**Projects:**
+• **Smart Cane (E-nkoni):** IoT-enabled assistive navigation device for the visually impaired
+• **The AUTO Test:** sensor and cloud-based digitization of the motorcycle driving-license test
+• **Bilitrack:** hyperbilirubinemia (jaundice) testing device
 
-**My Featured Projects:**
-• **E-Commerce Platform** - Complete online store with payment processing, inventory management, and admin dashboard
-• **Task Management App** - Collaborative tool with real-time updates and team features
-• **AI Chat Application** - Intelligent messaging system with AI-powered responses
-
-**My Project Approach:**
-• Requirements analysis and planning
-• Modern, responsive UI/UX design
-• Scalable architecture and clean code
-• Thorough testing and optimization
-• Deployment and maintenance support
-
-Each project demonstrates my ability to handle complex requirements and deliver production-ready applications.`,
-        sender: "bot",
-        timestamp: new Date(),
-        type: "action",
-        actions: [
+**Publication:** "Optical Sensor-based Assessment of bio-waste Levels for Home Water Safety Monitoring", MDPI, 2024.`,
+        [
           {
-            label: "View My Portfolio",
-            action: () =>
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" }),
+            label: "See Projects",
+            action: () => scrollTo("skills"),
             icon: <ExternalLink className="h-4 w-4" />,
           },
           {
-            label: "Read My Blog",
-            action: () =>
-              document
-                .getElementById("blog")
-                ?.scrollIntoView({ behavior: "smooth" }),
+            label: "Publications",
+            action: () => window.open("/publications", "_self"),
             icon: <ExternalLink className="h-4 w-4" />,
           },
         ],
-      };
+      );
     }
 
-    // Hiring and Contact
+    // Contact
     if (
       input.includes("hire") ||
       input.includes("contact") ||
-      input.includes("work together") ||
+      input.includes("email") ||
       input.includes("collaborate")
     ) {
-      return {
-        id: messageId,
-        content: `I'm available for exciting projects and collaborations!
+      return reply(
+        `I'm open to research, engineering and collaboration opportunities in smart manufacturing, embedded systems and IoT.
 
-**Services I Offer:**
-• Full-stack web application development
-• Frontend development (React/Next.js)
-• Backend API development
-• Database design and optimization
-• Technical consulting and code reviews
-• Maintenance and support
-
-**My Working Style:**
-• Clear communication and regular updates
-• Agile development approach
-• Focus on quality and best practices
-• Collaborative problem-solving
-• Timely delivery and support
-
-**My Availability:** Open to both project-based work and long-term partnerships.
-
-Ready to discuss your project? Let's connect!`,
-        sender: "bot",
-        timestamp: new Date(),
-        type: "action",
-        actions: [
+**Email:** jbniyikiza20@gmail.com
+**Phone:** +65 80864932
+**Based in:** Singapore / Kigali, Rwanda`,
+        [
           {
-            label: "Contact Me Now",
-            action: () =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" }),
-            icon: <ExternalLink className="h-4 w-4" />,
-          },
-          {
-            label: "Download My CV",
-            action: () =>
-              window.open(
-                "https://docs.google.com/document/d/1ffuINqC_QJB0kCKz892DSso3-QS9sbWR9aOeQW6RO9g/edit",
-                "_blank",
-              ),
-            icon: <Download className="h-4 w-4" />,
-          },
-        ],
-      };
-    }
-
-    // Development Process
-    if (
-      input.includes("process") ||
-      input.includes("methodology") ||
-      input.includes("approach")
-    ) {
-      return {
-        id: messageId,
-        content: `I follow a structured development process to ensure project success:
-
-**1. Discovery & Planning**
-• Requirements gathering and analysis
-• Technical architecture planning
-• Timeline and milestone definition
-
-**2. Design & Prototyping**
-• UI/UX design and wireframing
-• Technical specification documentation
-• Client feedback and iterations
-
-**3. Development**
-• Agile development with regular sprints
-• Clean, maintainable code practices
-• Regular testing and quality assurance
-
-**4. Deployment & Launch**
-• Production deployment and optimization
-• Performance monitoring and testing
-• Documentation and handover
-
-**5. Support & Maintenance**
-• Ongoing support and bug fixes
-• Feature enhancements and updates
-• Performance optimization
-
-This approach ensures transparency, quality, and successful project outcomes.`,
-        sender: "bot",
-        timestamp: new Date(),
-        type: "text",
-      };
-    }
-
-    // Pricing and Rates
-    if (
-      input.includes("price") ||
-      input.includes("rate") ||
-      input.includes("cost") ||
-      input.includes("budget")
-    ) {
-      return {
-        id: messageId,
-        content: `I offer flexible pricing options based on project scope and requirements:
-
-**My Pricing Models:**
-• **Project-based:** Fixed price for defined scope
-• **Hourly rate:** For ongoing work and consultations
-• **Retainer:** Monthly arrangement for continuous support
-
-**Factors Affecting My Pricing:**
-• Project complexity and scope
-• Timeline and urgency
-• Technology requirements
-• Ongoing support needs
-
-**What I Include:**
-• Development and testing
-• Code documentation
-• Basic deployment support
-• Post-launch bug fixes (30 days)
-
-For accurate pricing, I prefer to discuss your specific requirements. Every project is unique, and I provide transparent, competitive rates.`,
-        sender: "bot",
-        timestamp: new Date(),
-        type: "action",
-        actions: [
-          {
-            label: "Get Quote",
-            action: () =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" }),
+            label: "Contact Me",
+            action: () => scrollTo("contact"),
             icon: <ExternalLink className="h-4 w-4" />,
           },
         ],
-      };
+      );
     }
 
     // Default response with suggestions
     return {
       id: messageId,
-      content: `I'd be happy to tell you more about myself! I'm a talented Full Stack Developer with extensive experience in modern web technologies.
+      content: `I can tell you about:
+• My experience
+• My skills
+• My projects and publication
+• My education
+• How to contact me
 
-Here are some things I can share with you:
-• My professional background and experience
-• Technical skills and technologies I work with
-• Recent projects and portfolio highlights
-• My development process and methodology
-• How we can work together on your project
-
-What specific aspect would you like to know more about?`,
+What would you like to know?`,
       sender: "bot",
       timestamp: new Date(),
       type: "suggestion",

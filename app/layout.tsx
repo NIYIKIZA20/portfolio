@@ -6,10 +6,15 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Jean Baptiste Niyikiza. - Embedded Systems Engineer &  web Developer",
+  metadataBase: new URL("https://jbniyikiza.vercel.app"),
+  title: "Jean Baptiste Niyikiza | Smart Manufacturing, Embedded Systems & IoT",
   description:
-    "Portfolio of Jean Baptiste Niyikiza, a passionate Embedded systems engineer and Full Stack Web Developer specializing in modern web technologies.",
-  generator: "",
+    "Portfolio of Jean Baptiste Niyikiza, a Smart Manufacturing engineer (MSc, NTU Singapore) working across embedded systems, IoT, PCB design, and 3D/4D printing.",
+  openGraph: {
+    title: "Jean Baptiste Niyikiza | Smart Manufacturing, Embedded Systems & IoT",
+    description:
+      "Embedded systems, IoT, PCB design, 3D/4D printing and research by Jean Baptiste Niyikiza.",
+  },
 };
 
 export default function RootLayout({

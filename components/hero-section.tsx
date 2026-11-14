@@ -5,6 +5,7 @@ import { Github, Linkedin, Mail, Download, Facebook } from "lucide-react";
 import { WhatsAppIcon, XIcon } from "@/components/icons/social-icons";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { CV_URL } from "@/lib/profile-data";
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false);
@@ -14,14 +15,11 @@ export function HeroSection() {
   }, []);
 
   const handleDownloadCV = () => {
-    window.open(
-      "https://drive.google.com/file/d/1GZtxOuLvBuxRHpYOXSKltdxlfHur-6tF/view?usp=drive_link",
-      "_blank",
-    );
+    window.open(CV_URL, "_blank");
   };
 
   const handleViewWork = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" });
   };
 
   if (!mounted) return null;
@@ -81,7 +79,7 @@ export function HeroSection() {
                 className="text-xl md:text-2xl lg:text-3xl font-semibold text-foreground/80"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Smart Manufacturing | Embedded Systems & IoT 
+                Smart Manufacturing | Embedded Systems &amp; IoT
               </h2>
               <div className="mt-3 h-1 w-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mx-auto lg:mx-0" />
             </div>
@@ -91,9 +89,12 @@ export function HeroSection() {
               className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed animate-fade-in-up max-w-lg mx-auto lg:mx-0"
               style={{ fontFamily: "var(--font-body)", animationDelay: "0.3s" }}
             >
-             Smart Manufacturing Engineer with a background in Electronics and Telecommunications, combining expertise in 
-             additive manufacturing, 3D/4D modelling and printing, semiconductor fabrication, PCB design, and embedded and IoT 
-             systems. 
+              Smart Manufacturing Engineer with a background in Electronics and
+              Telecommunications, combining additive manufacturing, 3D/4D
+              modelling and printing, semiconductor fabrication, PCB design, and
+              embedded and IoT systems. MSc student at NTU Singapore, driven to
+              contribute to chip design, semiconductor manufacturing, and advanced
+              device R&amp;D.
             </p>
 
             {/* CTA Buttons */}
@@ -197,7 +198,7 @@ export function HeroSection() {
                 ring-1 ring-black/8 dark:ring-white/8">
                 <Image
                   src="/jean-baptiste-profile.jpg"
-                  alt="Jean Baptiste Niyikiza - Full Stack Web Developer"
+                  alt="Jean Baptiste Niyikiza"
                   fill
                   className="object-cover object-top transition-transform duration-700 hover:scale-105"
                   priority

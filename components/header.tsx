@@ -20,12 +20,11 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
+    { href: "/#home", label: "Home" },
+    { href: "/#education", label: "Education" },
+    { href: "/publications", label: "Publication" },
+    { href: "/#skills", label: "Skills & Experience" },
     { href: "/journal", label: "Journal" },
-    { href: "/publications", label: "Publications" },
-    { href: "#contact", label: "Contact" },
   ];
 
   return (
@@ -44,7 +43,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -58,7 +57,7 @@ export function Header() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4">
             <Button
               variant="ghost"
               size="icon"
@@ -68,22 +67,13 @@ export function Header() {
               <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Toggle theme</span>
             </Button>
-            <Button variant="outline" asChild>
-              <a
-                href="https://drive.google.com/file/d/1yw5e9MObECB6LTKeRFrHER-496jHOyk-/view?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download CV
-              </a>
-            </Button>
-            <Button className="bg-primary hover:bg-primary/90">
-              Contact Me
+            <Button className="bg-primary hover:bg-primary/90" asChild>
+              <Link href="/#contact">Contact Me</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-2">
             <Button
               variant="ghost"
               size="icon"
@@ -108,7 +98,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-md">
+          <div className="lg:hidden py-4 border-t border-border bg-background/95 backdrop-blur-md">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
@@ -122,21 +112,10 @@ export function Header() {
                 </Link>
               ))}
               <div className="px-4 pt-2">
-                <Button
-                  variant="outline"
-                  className="w-full mb-2 bg-transparent"
-                  asChild
-                >
-                  <a
-                    href="https://drive.google.com/file/d/13jP1PWF_zrblD-KNOKTKpN1oi_7ixYG1/view?usp=drive_link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Download CV
-                  </a>
-                </Button>
-                <Button className="w-full bg-primary hover:bg-primary/90">
-                  Contact Me
+                <Button className="w-full bg-primary hover:bg-primary/90" asChild>
+                  <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    Contact Me
+                  </Link>
                 </Button>
               </div>
             </nav>

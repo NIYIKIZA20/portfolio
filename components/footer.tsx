@@ -14,16 +14,16 @@ export function Footer() {
               className="text-2xl font-bold text-primary mb-4 block"
             >
               <span style={{ fontFamily: "var(--font-heading)" }}>
-                Jean Baptiste Niyikiza.
+                Jean Baptiste Niyikiza
               </span>
             </Link>
             <p
               className="text-muted-foreground mb-6 max-w-md"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Embedded Systems and Web Developer passionate about creating exceptional
-              digital experiences through innovative web solutions and clean,
-              efficient code.
+              Smart Manufacturing engineer working across embedded systems, IoT,
+              PCB design, and 3D/4D printing, turning engineering ideas into
+              deployable technology.
             </p>
             <div className="flex space-x-4">
               <a
@@ -90,14 +90,21 @@ export function Footer() {
               Quick Links
             </h3>
             <ul className="space-y-2">
-              {["Home", "About", "Projects", "Blog", "Contact"].map((item) => (
-                <li key={item}>
+              {[
+                { href: "/#home", label: "Home" },
+                { href: "/#education", label: "Education" },
+                { href: "/publications", label: "Publication" },
+                { href: "/#skills", label: "Skills & Experience" },
+                { href: "/journal", label: "Journal" },
+                { href: "/#contact", label: "Contact" },
+              ].map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={`#${item.toLowerCase()}`}
+                    href={item.href}
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -110,15 +117,14 @@ export function Footer() {
               className="font-semibold mb-4"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Services
+              Focus Areas
             </h3>
             <ul className="space-y-2">
               {[
-                "Web Development",
-                "Mobile Apps",
-                "UI/UX Design",
-                "Consulting",
-                "Maintenance",
+                "Embedded Systems & IoT",
+                "3D Printing & Enclosure Design",
+                "Software Development",
+                "Research & Training",
               ].map((service) => (
                 <li key={service}>
                   <span
@@ -138,24 +144,8 @@ export function Footer() {
             className="text-muted-foreground text-sm flex items-center gap-1"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            © 2024 Jean Baptiste Niyikiza. All rights reserved.
+            © {new Date().getFullYear()} Jean Baptiste Niyikiza. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link
-              href="/privacy"
-              className="text-muted-foreground hover:text-primary text-sm transition-colors duration-200"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-muted-foreground hover:text-primary text-sm transition-colors duration-200"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

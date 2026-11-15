@@ -122,9 +122,10 @@ export function Footer() {
             <ul className="space-y-2">
               {[
                 "Embedded Systems & IoT",
-                "3D Printing & Enclosure Design",
-                "Software Development",
-                "Research & Training",
+                "3D Printing & 4D Printing",
+                "PCB Design & nanofabrication",
+                "Smart Manufacturing & Automation",
+                "Laser Cutting & CNC Machining",
               ].map((service) => (
                 <li key={service}>
                   <span

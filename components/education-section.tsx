@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { MapPin } from "lucide-react";
 import { education } from "@/lib/profile-data";
 
 export function EducationSection() {
@@ -10,12 +9,6 @@ export function EducationSection() {
 
           {/* Section heading */}
           <div className="text-center mb-16">
-            <p
-              className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-3"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Rwanda → Singapore
-            </p>
             <h2
               className="text-3xl md:text-4xl font-bold"
               style={{ fontFamily: "var(--font-heading)" }}
@@ -54,37 +47,45 @@ export function EducationSection() {
                   />
                 </div>
 
-                <span
-                  className="mx-auto mb-3 text-xs font-semibold tracking-wider text-muted-foreground"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  {item.period}
-                </span>
+                {/* School name first: not every logo spells it out */}
                 <h3
                   className="text-lg font-bold leading-snug mb-1"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
-                  {item.degree}
+                  {item.school}
                 </h3>
                 <p
-                  className="text-sm text-muted-foreground mb-4"
+                  className="text-sm font-medium text-foreground/80 mb-1"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  {item.school}
+                  {item.degree}
                 </p>
+                <span
+                  className="mx-auto mb-4 text-xs font-semibold tracking-wider text-muted-foreground"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {item.period}
+                </span>
 
-                <div className="mt-auto flex flex-col items-center gap-2">
+                <span
+                  className="mx-auto mb-6 px-3 py-1 rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-300 text-xs font-semibold"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  {item.highlight}
+                </span>
+
+                <div className="mt-auto pt-4 border-t border-border/60 flex items-center gap-2">
+                  <Image
+                    src={`/flags/${item.country}.svg`}
+                    alt=""
+                    width={28}
+                    height={19}
+                    className="h-[19px] w-7 rounded-[3px] object-cover ring-1 ring-black/10 shadow-sm"
+                  />
                   <span
-                    className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-300 text-xs font-semibold"
+                    className="text-xs text-muted-foreground"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    {item.highlight}
-                  </span>
-                  <span
-                    className="inline-flex items-center gap-1 text-xs text-muted-foreground"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    <MapPin className="h-3 w-3" />
                     {item.location}
                   </span>
                 </div>

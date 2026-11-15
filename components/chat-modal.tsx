@@ -230,8 +230,8 @@ export function ChatModal() {
       return reply(
         `I'm open to research, engineering and collaboration opportunities in smart manufacturing, embedded systems and IoT.
 
-**Email:** jbniyikiza20@gmail.com
-**Phone:** +65 80864932
+The quickest way to reach me is WhatsApp, or send an email from the contact form.
+
 **Based in:** Singapore / Kigali, Rwanda`,
         [
           {

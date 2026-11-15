@@ -2,14 +2,13 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Mail,
-  Phone,
   MapPin,
   Send,
   CheckCircle,
@@ -19,6 +18,7 @@ import {
 } from "lucide-react";
 import { WhatsAppIcon, XIcon } from "@/components/icons/social-icons";
 import { LoadingSpinner } from "@/components/loading-spinner";
+import { WEB3FORMS_KEY, WHATSAPP_URL } from "@/lib/profile-data";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -29,6 +29,14 @@ export function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const focusForm = () => {
+    const form = formRef.current;
+    if (!form) return;
+    form.scrollIntoView({ behavior: "smooth", block: "center" });
+    form.querySelector<HTMLInputElement>("input[name=name]")?.focus({ preventScroll: true });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +50,7 @@ export function ContactSection() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "bc0d3da8-b2bd-4dc7-bc6d-7f6efba144b7",
+          access_key: WEB3FORMS_KEY,
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
@@ -118,69 +126,65 @@ export function ContactSection() {
                 </p>
               </div>
 
-              <div className="space-y-5">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-blue-500/10 rounded-xl shrink-0">
-                    <Mail className="h-5 w-5 text-blue-500" />
-                  </div>
-                  <div>
-                    <h4
-                      className="font-semibold text-sm text-muted-foreground uppercase tracking-wider mb-0.5"
+              {/* No address or number on show: visitors reach me through these two actions */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-card p-5 hover:border-emerald-500/60 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  <span className="p-3 bg-emerald-500/10 rounded-xl shrink-0">
+                    <WhatsAppIcon className="h-6 w-6 text-emerald-500" />
+                  </span>
+                  <span>
+                    <span
+                      className="block font-semibold group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
-                      Email
-                    </h4>
-                    <a
-                      href="mailto:jbniyikiza20@gmail.com"
-                      className="text-foreground hover:text-blue-500 transition-colors font-medium"
+                      WhatsApp me
+                    </span>
+                    <span
+                      className="block text-sm text-muted-foreground"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
-                      jbniyikiza20@gmail.com
-                    </a>
-                  </div>
-                </div>
+                      Quickest way to reach me
+                    </span>
+                  </span>
+                </a>
 
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-emerald-500/10 rounded-xl shrink-0">
-                    <Phone className="h-5 w-5 text-emerald-500" />
-                  </div>
-                  <div>
-                    <h4
-                      className="font-semibold text-sm text-muted-foreground uppercase tracking-wider mb-0.5"
+                <button
+                  type="button"
+                  onClick={focusForm}
+                  className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-card p-5 text-left hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                >
+                  <span className="p-3 bg-blue-500/10 rounded-xl shrink-0">
+                    <Mail className="h-6 w-6 text-blue-500" />
+                  </span>
+                  <span>
+                    <span
+                      className="block font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
-                      Phone
-                    </h4>
-                    <a
-                      href="tel:+250789092847"
-                      className="text-foreground hover:text-emerald-500 transition-colors font-medium"
+                      Email me
+                    </span>
+                    <span
+                      className="block text-sm text-muted-foreground"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
-                      +250 789 092 847
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="p-3 bg-orange-500/10 rounded-xl shrink-0">
-                    <MapPin className="h-5 w-5 text-orange-500" />
-                  </div>
-                  <div>
-                    <h4
-                      className="font-semibold text-sm text-muted-foreground uppercase tracking-wider mb-0.5"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      Location
-                    </h4>
-                    <p
-                      className="text-foreground font-medium"
-                      style={{ fontFamily: "var(--font-body)" }}
-                    >
-                      Available for remote work worldwide
-                    </p>
-                  </div>
-                </div>
+                      Straight to my inbox
+                    </span>
+                  </span>
+                </button>
               </div>
+
+              <p
+                className="flex items-center gap-2 text-sm text-muted-foreground"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                <MapPin className="h-4 w-4 text-orange-500" />
+                Available for remote work worldwide
+              </p>
 
               <div className="pt-4 border-t border-border/60">
                 <h4
@@ -226,15 +230,6 @@ export function ContactSection() {
                   >
                     <XIcon className="h-4 w-4" />
                   </a>
-                  <a
-                    href="https://wa.me/250789092847"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:border-emerald-500 hover:text-emerald-500 hover:bg-emerald-500/5 transition-all duration-300"
-                    aria-label="Chat on WhatsApp"
-                  >
-                    <WhatsAppIcon className="h-4 w-4" />
-                  </a>
                 </div>
               </div>
             </div>
@@ -243,7 +238,7 @@ export function ContactSection() {
             <Card className="border-border/60 shadow-sm">
               <CardHeader>
                 <CardTitle style={{ fontFamily: "var(--font-heading)" }}>
-                  Send Me a Message
+                  Email Me
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -264,7 +259,7 @@ export function ContactSection() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <Input
                         name="name"

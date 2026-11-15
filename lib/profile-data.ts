@@ -18,6 +18,8 @@ export interface Education {
   period: string;
   highlight: string;
   logo: string;
+  // ISO country code, matches /public/flags/{code}.svg
+  country: "sg" | "rw";
 }
 
 export const education: Education[] = [
@@ -28,6 +30,7 @@ export const education: Education[] = [
     period: "2026 – 2027",
     highlight: "Industry 4.0 · Additive Manufacturing",
     logo: "/education/ntu.png",
+    country: "sg",
   },
   {
     degree: "BEng, Electronics & Telecommunication",
@@ -36,6 +39,7 @@ export const education: Education[] = [
     period: "2021 – 2025",
     highlight: "GPA 3.5 / 4.0",
     logo: "/education/ur.jpg",
+    country: "rw",
   },
   {
     degree: "Mathematics, Physics & Chemistry",
@@ -44,6 +48,7 @@ export const education: Education[] = [
     period: "2013 – 2019",
     highlight: "Perfect score: 73 / 73",
     logo: "/education/pssv.png",
+    country: "rw",
   },
 ];
 
@@ -98,7 +103,7 @@ export const skillAreas: SkillArea[] = [
     icon: Cpu,
     color: "text-violet-500",
     bg: "bg-violet-500/10",
-    image: "/placeholder.jpg",
+    image: "/skills/embedded.jpg",
     skills: [
       { name: "Microcontroller firmware", level: "Advanced" },
       { name: "Sensors & real-time data acquisition", level: "Advanced" },
@@ -151,7 +156,7 @@ export const skillAreas: SkillArea[] = [
     icon: Code2,
     color: "text-blue-500",
     bg: "bg-blue-500/10",
-    image: "/placeholder.jpg",
+    image: "/skills/software.jpg",
     skills: [
       { name: "React / Next.js", level: "Advanced" },
       { name: "TypeScript", level: "Advanced" },
@@ -198,14 +203,7 @@ export const skillAreas: SkillArea[] = [
       { name: "Team leadership", level: "Advanced" },
       { name: "MATLAB & Origin Pro", level: "Proficient" },
     ],
-    projects: [
-      {
-        title: "Water Safety Monitoring",
-        description: "Peer-reviewed optical sensing research, MDPI 2024.",
-        image: "/placeholder.svg",
-        tags: ["Research", "Publication"],
-        url: "/publications",
-      },
-    ],
+    // Research papers live on /publications, not here
+    projects: [],
   },
 ];

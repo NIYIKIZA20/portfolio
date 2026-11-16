@@ -59,12 +59,18 @@ export const highlights = [
   { value: "MDPI", label: "Peer-reviewed author" },
 ];
 
-export const workedWith = [
-  "Beno Holdings",
-  "ReadyToBloom Inc. · Japan",
-  "Unipod · University of Rwanda",
-  "Alight Rwanda",
-  "Kagoma Tech",
+export interface Organization {
+  name: string;
+  logo: string;
+  url: string;
+}
+
+export const workedWith: Organization[] = [
+  { name: "Beno Holdings", logo: "/companies/beno-holdings.png", url: "https://www.benoholdings.rw/" },
+  { name: "ReadyToBloom Inc. · Japan", logo: "/companies/readytobloom.png", url: "https://www.readytobloom.jp/" },
+  { name: "Unipod · University of Rwanda", logo: "/companies/unipod.png", url: "https://unipod.ur.ac.rw/" },
+  { name: "Alight Rwanda", logo: "/companies/alight.png", url: "https://www.wearealight.org/rwanda" },
+  { name: "Kagoma Tech", logo: "/companies/kagoma-tech.png", url: "https://kagoma.tech/" },
 ];
 
 export type SkillLevel = "Advanced" | "Proficient" | "Familiar";

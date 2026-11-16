@@ -201,7 +201,7 @@ export function SkillsExperienceSection() {
         </div>
       </div>
 
-      {/* Where I've built: names only, the CV has the details */}
+      {/* Where I've built: logos link to each organization */}
       <div className="mt-20">
         <p
           className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-6"
@@ -215,15 +215,29 @@ export function SkillsExperienceSection() {
             WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
           }}
         >
-          <div className="flex w-max animate-marquee gap-14 pr-14">
-            {[...workedWith, ...workedWith].map((name, i) => (
-              <span
+          <div className="flex w-max animate-marquee gap-6 pr-6 py-2">
+            {[...workedWith, ...workedWith].map((org, i) => (
+              <a
                 key={i}
-                className="text-xl md:text-2xl font-bold text-foreground/35 hover:text-foreground transition-colors whitespace-nowrap"
-                style={{ fontFamily: "var(--font-heading)" }}
+                href={org.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={org.name}
+                title={org.name}
+                aria-hidden={i >= workedWith.length ? true : undefined}
+                tabIndex={i >= workedWith.length ? -1 : undefined}
+                className="relative flex h-20 w-44 md:h-24 md:w-52 shrink-0 items-center justify-center rounded-xl bg-white px-4 py-3 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md dark:ring-white/10"
               >
-                {name}
-              </span>
+                <span className="relative h-full w-full">
+                  <Image
+                    src={org.logo}
+                    alt={org.name}
+                    fill
+                    sizes="208px"
+                    className="object-contain"
+                  />
+                </span>
+              </a>
             ))}
           </div>
         </div>

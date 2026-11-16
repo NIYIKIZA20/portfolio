@@ -82,7 +82,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 scroll-mt-16 bg-muted/25 dark:bg-muted/10">
+    <section id="contact" className="py-24 scroll-mt-16 bg-background dark:bg-muted/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
 
@@ -148,7 +148,7 @@ export function ContactSection() {
                       className="block text-sm text-muted-foreground"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
-                      Quickest way to reach me
+                      Fastest reply
                     </span>
                   </span>
                 </a>
@@ -235,7 +235,7 @@ export function ContactSection() {
             </div>
 
             {/* Right: Contact form */}
-            <Card className="border-border/60 shadow-sm">
+            <Card className="border-border/60 shadow-xl shadow-slate-900/[0.06] dark:shadow-sm">
               <CardHeader>
                 <CardTitle style={{ fontFamily: "var(--font-heading)" }}>
                   Email Me

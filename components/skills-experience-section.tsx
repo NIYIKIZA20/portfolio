@@ -16,7 +16,7 @@ export function SkillsExperienceSection() {
   const active = skillAreas.find((a) => a.id === activeId) ?? skillAreas[0];
 
   return (
-    <section id="skills" className="py-24 bg-muted/25 dark:bg-muted/10 scroll-mt-16 overflow-hidden">
+    <section id="skills" className="py-24 bg-slate-50 border-y border-slate-200/70 dark:bg-muted/10 dark:border-transparent scroll-mt-16 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
 
@@ -77,7 +77,7 @@ export function SkillsExperienceSection() {
             key={active.id}
             id="skill-panel"
             role="tabpanel"
-            className="grid grid-cols-1 lg:grid-cols-2 rounded-3xl border border-border/60 bg-card overflow-hidden shadow-sm animate-fade-in-up"
+            className="grid grid-cols-1 lg:grid-cols-2 rounded-3xl border border-border/60 bg-card overflow-hidden shadow-xl shadow-slate-900/[0.06] dark:shadow-sm animate-fade-in-up"
           >
             <div className="p-7 md:p-10 flex flex-col justify-center">
               <h3
@@ -178,7 +178,7 @@ export function SkillsExperienceSection() {
                   </>
                 );
                 const className =
-                  "group block overflow-hidden rounded-2xl border border-border/60 bg-card hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500";
+                  "group block overflow-hidden rounded-2xl border border-border/60 bg-card shadow-md shadow-slate-900/[0.04] dark:shadow-none hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500";
                 return project.url ? (
                   <a
                     key={project.title}

@@ -89,7 +89,7 @@ export interface SkillArea {
   icon: LucideIcon;
   color: string;
   bg: string;
-  // Replace with a real photo in /public/skills/ (e.g. "/skills/embedded.jpg")
+  // Stock photos (Unsplash License) in /public/skills/; swap for your own when ready
   image: string;
   skills: Skill[];
   projects: Project[];
@@ -115,19 +115,19 @@ export const skillAreas: SkillArea[] = [
       {
         title: "Smart Cane (E-nkoni)",
         description: "IoT navigation aid for the visually impaired.",
-        image: "/placeholder.svg",
+        image: "/projects/smart-cane.jpg",
         tags: ["IoT", "Sensors", "Assistive Tech"],
       },
       {
         title: "The AUTO Test",
         description: "Sensor-driven, cloud-based motorcycle licence testing.",
-        image: "/placeholder.svg",
+        image: "/projects/auto-test.jpg",
         tags: ["Sensors", "Cloud", "Firmware"],
       },
       {
         title: "Bilitrack",
         description: "Device for detecting jaundice in newborns.",
-        image: "/placeholder.svg",
+        image: "/projects/bilitrack.jpg",
         tags: ["Biomedical", "Optical Sensing"],
       },
     ],
@@ -139,7 +139,7 @@ export const skillAreas: SkillArea[] = [
     icon: Layers,
     color: "text-orange-500",
     bg: "bg-orange-500/10",
-    image: "/placeholder.jpg",
+    image: "/skills/3d-printing.jpg",
     skills: [
       { name: "3D modelling & prototyping", level: "Advanced" },
       { name: "Creality printing", level: "Advanced" },
@@ -195,7 +195,7 @@ export const skillAreas: SkillArea[] = [
     icon: Sparkles,
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
-    image: "/placeholder.jpg",
+    image: "/skills/others.jpg",
     skills: [
       { name: "Research & technical writing", level: "Advanced" },
       { name: "Perception annotation for AI", level: "Advanced" },

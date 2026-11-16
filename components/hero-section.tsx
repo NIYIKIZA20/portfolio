@@ -30,7 +30,7 @@ export function HeroSection() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       {/* Background: layered gradient + dot grid */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/60 dark:from-slate-950 dark:via-gray-950 dark:to-indigo-950/50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white to-indigo-100/50 dark:from-slate-950 dark:via-gray-950 dark:to-indigo-950/50" />
       <div
         className="absolute inset-0 opacity-50 dark:opacity-25"
         style={{
@@ -185,17 +185,11 @@ export function HeroSection() {
           {/* Right: Profile Image - Portrait Style */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative animate-hero-image">
-              {/* Soft ambient glow behind image */}
-              <div className="absolute -inset-8 bg-gradient-to-br from-blue-400/20 via-indigo-400/15 to-purple-400/10 dark:from-blue-500/25 dark:via-indigo-500/20 dark:to-purple-500/15 rounded-[2rem] blur-2xl pointer-events-none" />
-
-              {/* Animated gradient ring */}
-              <div className="absolute -inset-1 rounded-[1.75rem] bg-gradient-to-br from-blue-500/40 via-indigo-500/30 to-purple-500/40 opacity-60 blur-sm" />
-
-              {/* Main image container — portrait shape, rounded corners */}
+              {/* Main image container — portrait shape, rounded corners, neutral soft shadow */}
               <div className="relative w-72 h-[26rem] md:w-80 md:h-[28rem] lg:w-[22rem] lg:h-[30rem] rounded-2xl overflow-hidden
-                shadow-[0_20px_60px_-10px_rgba(0,0,0,0.20),0_8px_20px_-8px_rgba(0,0,0,0.12)]
-                dark:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.65),0_8px_20px_-8px_rgba(0,0,0,0.40)]
-                ring-1 ring-black/8 dark:ring-white/8">
+                shadow-[0_24px_50px_-12px_rgba(15,23,42,0.28),0_10px_20px_-10px_rgba(15,23,42,0.18)]
+                dark:shadow-[0_24px_50px_-12px_rgba(0,0,0,0.70),0_10px_20px_-10px_rgba(0,0,0,0.50)]
+                ring-1 ring-black/10 dark:ring-white/10">
                 <Image
                   src="/jean-baptiste-profile.jpg"
                   alt="Jean Baptiste Niyikiza"
@@ -206,7 +200,6 @@ export function HeroSection() {
                 {/* Subtle vignette at bottom */}
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />
               </div>
-
             </div>
           </div>
 

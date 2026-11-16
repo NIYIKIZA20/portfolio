@@ -26,7 +26,7 @@ export function EducationSection() {
             {education.map((item, i) => (
               <div
                 key={item.school}
-                className="group relative flex flex-col rounded-2xl border border-border/60 bg-card p-6 text-center hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500"
+                className="group relative flex flex-col rounded-2xl border border-border/60 bg-card p-6 text-center shadow-lg shadow-slate-900/[0.05] dark:shadow-none hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500"
               >
                 {i === 0 && (
                   <span

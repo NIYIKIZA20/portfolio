@@ -207,7 +207,7 @@ export function SkillsExperienceSection() {
           className="text-center text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-6"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          Where I&apos;ve built &amp; taught
+          Different companies and organizations I've worked with:
         </p>
         <div
           style={{

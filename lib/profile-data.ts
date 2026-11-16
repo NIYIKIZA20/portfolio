@@ -62,7 +62,7 @@ export const highlights = [
 export const workedWith = [
   "Beno Holdings",
   "ReadyToBloom Inc. · Japan",
-  "Unipod & FabLab · University of Rwanda",
+  "Unipod · University of Rwanda",
   "Alight Rwanda",
   "Kagoma Tech",
 ];
